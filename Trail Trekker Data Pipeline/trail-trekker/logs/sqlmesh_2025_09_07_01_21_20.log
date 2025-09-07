@@ -1,0 +1,378 @@
+2025-09-07 01:21:20,642 - MainThread - sqlmesh.core.config.connection - INFO - Creating new DuckDB adapter for data files: {'trail_trekker.db'} (connection.py:489)
+2025-09-07 01:21:20,912 - MainThread - sqlmesh.core.config.connection - INFO - Creating new DuckDB adapter for in-memory database (connection.py:491)
+2025-09-07 01:21:20,935 - MainThread - sqlmesh.core.config.connection - INFO - Using existing DuckDB adapter due to overlapping data file: trail_trekker.db (connection.py:479)
+2025-09-07 01:21:28,820 - MainThread - sqlmesh.core.plan.evaluator - INFO - Evaluating plan stage CreateSnapshotRecordsStage (evaluator.py:125)
+2025-09-07 01:21:28,836 - MainThread - sqlmesh.core.plan.evaluator - INFO - Evaluating plan stage PhysicalLayerSchemaCreationStage (evaluator.py:125)
+2025-09-07 01:21:28,838 - MainThread - sqlmesh.core.snapshot.evaluator - INFO - Creating schema 'trail_trekker.sqlmesh__raw' (evaluator.py:1355)
+2025-09-07 01:21:28,838 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ CREATE SCHEMA IF NOT EXISTS "trail_trekker"."sqlmesh__raw" (base.py:2466)
+2025-09-07 01:21:28,838 - MainThread - sqlmesh.core.snapshot.evaluator - INFO - Creating schema 'trail_trekker.sqlmesh__staging' (evaluator.py:1355)
+2025-09-07 01:21:28,838 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ CREATE SCHEMA IF NOT EXISTS "trail_trekker"."sqlmesh__staging" (base.py:2466)
+2025-09-07 01:21:28,839 - MainThread - sqlmesh.core.snapshot.evaluator - INFO - Creating schema 'trail_trekker.sqlmesh__sqlmesh_example' (evaluator.py:1355)
+2025-09-07 01:21:28,839 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ CREATE SCHEMA IF NOT EXISTS "trail_trekker"."sqlmesh__sqlmesh_example" (base.py:2466)
+2025-09-07 01:21:28,839 - MainThread - sqlmesh.core.plan.evaluator - INFO - Evaluating plan stage BackfillStage (evaluator.py:125)
+2025-09-07 01:21:28,842 - MainThread - sqlmesh.core.snapshot.evaluator - INFO - Listing data objects in schema trail_trekker.sqlmesh__staging (evaluator.py:1458)
+2025-09-07 01:21:28,842 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ SELECT CURRENT_CATALOG() (base.py:2466)
+2025-09-07 01:21:28,842 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ SELECT CURRENT_CATALOG() (base.py:2466)
+2025-09-07 01:21:28,843 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ SELECT table_name AS name, table_schema AS schema, CASE table_type WHEN 'BASE TABLE' THEN 'table' WHEN 'VIEW' THEN 'view' WHEN 'LOCAL TEMPORARY' THEN 'table' END AS type FROM system.information_schema.tables WHERE (table_catalog = 'trail_trekker' AND table_schema = 'sqlmesh__staging') AND table_name IN ('staging__features__621034201', 'staging__plans__1444298950', 'staging__subscriptions__662248324', 'staging__customers__544997266') (base.py:2466)
+2025-09-07 01:21:28,850 - MainThread - sqlmesh.core.snapshot.evaluator - INFO - Listing data objects in schema trail_trekker.sqlmesh__raw (evaluator.py:1458)
+2025-09-07 01:21:28,850 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ SELECT CURRENT_CATALOG() (base.py:2466)
+2025-09-07 01:21:28,850 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ SELECT CURRENT_CATALOG() (base.py:2466)
+2025-09-07 01:21:28,851 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ SELECT table_name AS name, table_schema AS schema, CASE table_type WHEN 'BASE TABLE' THEN 'table' WHEN 'VIEW' THEN 'view' WHEN 'LOCAL TEMPORARY' THEN 'table' END AS type FROM system.information_schema.tables WHERE (table_catalog = 'trail_trekker' AND table_schema = 'sqlmesh__raw') AND table_name IN ('raw__plans__3729495492', 'raw__features__2713381237', 'raw__subscriptions__1429161402', 'raw__plan_features__1753253188', 'raw__customers__3881866267') (base.py:2466)
+2025-09-07 01:21:28,853 - MainThread - sqlmesh.core.snapshot.evaluator - INFO - Evaluating snapshot SnapshotId<"trail_trekker"."raw"."customers": 4125649096> (evaluator.py:701)
+2025-09-07 01:21:28,854 - MainThread - sqlmesh.core.snapshot.evaluator - INFO - Creating table 'trail_trekker.sqlmesh__raw.raw__customers__3881866267' (evaluator.py:1763)
+2025-09-07 01:21:28,854 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ SELECT CURRENT_CATALOG() (base.py:2466)
+2025-09-07 01:21:28,855 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ SELECT type FROM DUCKDB_DATABASES() WHERE database_name = 'trail_trekker' (base.py:2466)
+2025-09-07 01:21:28,855 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ CREATE TABLE IF NOT EXISTS "trail_trekker"."sqlmesh__raw"."raw__customers__3881866267" ("customer_id" TEXT, "username" TEXT, "email" TEXT, "phone" TEXT, "first_name" TEXT, "last_name" TEXT, "date_of_birth" TEXT, "preferred_difficulty" TEXT, "location_city" TEXT, "location_state" TEXT, "location_country" TEXT, "profile_created_date" TEXT, "total_hikes_logged" BIGINT, "favorite_trail_type" TEXT) (base.py:2466)
+2025-09-07 01:21:28,856 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ COMMENT ON TABLE "trail_trekker"."sqlmesh__raw"."raw__customers__3881866267" IS 'Customers entity per ERD. PK = customer_id. One customer can have many subscriptions.' (base.py:2466)
+2025-09-07 01:21:28,856 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ COMMENT ON COLUMN "trail_trekker"."sqlmesh__raw"."raw__customers__3881866267"."customer_id" IS 'Primary key (ERD underlined).' (base.py:2466)
+2025-09-07 01:21:28,856 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ COMMENT ON COLUMN "trail_trekker"."sqlmesh__raw"."raw__customers__3881866267"."username" IS 'Login/display handle.' (base.py:2466)
+2025-09-07 01:21:28,856 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ COMMENT ON COLUMN "trail_trekker"."sqlmesh__raw"."raw__customers__3881866267"."email" IS 'Contact email (lowercased in staging).' (base.py:2466)
+2025-09-07 01:21:28,857 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ COMMENT ON COLUMN "trail_trekker"."sqlmesh__raw"."raw__customers__3881866267"."phone" IS 'Freeform phone number.' (base.py:2466)
+2025-09-07 01:21:28,857 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ COMMENT ON COLUMN "trail_trekker"."sqlmesh__raw"."raw__customers__3881866267"."first_name" IS 'Given name.' (base.py:2466)
+2025-09-07 01:21:28,857 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ COMMENT ON COLUMN "trail_trekker"."sqlmesh__raw"."raw__customers__3881866267"."last_name" IS 'Family name.' (base.py:2466)
+2025-09-07 01:21:28,857 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ COMMENT ON COLUMN "trail_trekker"."sqlmesh__raw"."raw__customers__3881866267"."location_state" IS 'US state code.' (base.py:2466)
+2025-09-07 01:21:28,857 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ COMMENT ON COLUMN "trail_trekker"."sqlmesh__raw"."raw__customers__3881866267"."location_country" IS 'Country (e.g., USA).' (base.py:2466)
+2025-09-07 01:21:28,858 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ COMMENT ON COLUMN "trail_trekker"."sqlmesh__raw"."raw__customers__3881866267"."profile_created_date" IS 'Account creation date (string in CSV).' (base.py:2466)
+2025-09-07 01:21:28,858 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ COMMENT ON COLUMN "trail_trekker"."sqlmesh__raw"."raw__customers__3881866267"."total_hikes_logged" IS 'Integer-like count of hikes.' (base.py:2466)
+2025-09-07 01:21:28,858 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ COMMENT ON COLUMN "trail_trekker"."sqlmesh__raw"."raw__customers__3881866267"."favorite_trail_type" IS 'Preference (e.g., Mountain, Forest).' (base.py:2466)
+2025-09-07 01:21:28,859 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ SELECT CURRENT_CATALOG() (base.py:2466)
+2025-09-07 01:21:28,859 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ SELECT CURRENT_CATALOG() (base.py:2466)
+2025-09-07 01:21:28,860 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ SELECT table_name AS name, table_schema AS schema, CASE table_type WHEN 'BASE TABLE' THEN 'table' WHEN 'VIEW' THEN 'view' WHEN 'LOCAL TEMPORARY' THEN 'table' END AS type FROM system.information_schema.tables WHERE (table_catalog = 'trail_trekker' AND table_schema = 'sqlmesh__raw') AND table_name IN ('raw__customers__3881866267') (base.py:2466)
+2025-09-07 01:21:28,863 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ SELECT CURRENT_CATALOG() (base.py:2466)
+2025-09-07 01:21:28,864 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ SELECT type FROM DUCKDB_DATABASES() WHERE database_name = 'trail_trekker' (base.py:2466)
+2025-09-07 01:21:28,864 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ CREATE OR REPLACE TABLE "trail_trekker"."sqlmesh__raw"."raw__customers__3881866267" AS SELECT CAST("customer_id" AS TEXT) AS "customer_id", CAST("username" AS TEXT) AS "username", CAST("email" AS TEXT) AS "email", CAST("phone" AS TEXT) AS "phone", CAST("first_name" AS TEXT) AS "first_name", CAST("last_name" AS TEXT) AS "last_name", CAST("date_of_birth" AS TEXT) AS "date_of_birth", CAST("preferred_difficulty" AS TEXT) AS "preferred_difficulty", CAST("location_city" AS TEXT) AS "location_city", CAST("location_state" AS TEXT) AS "location_state", CAST("location_country" AS TEXT) AS "location_country", CAST("profile_created_date" AS TEXT) AS "profile_created_date", CAST("total_hikes_logged" AS BIGINT) AS "total_hikes_logged", CAST("favorite_trail_type" AS TEXT) AS "favorite_trail_type" FROM (SELECT "customer_id", "username", "email", "phone", "first_name", "last_name", "date_of_birth", "preferred_difficulty", "location_city", "location_state", "location_country", "profile_created_date", "total_hikes_logged", "favorite_trail_type" FROM "trail_trekker"."sqlmesh__raw"."__temp_raw__customers__3881866267_ykk6cg19") AS "_subquery" (base.py:2466)
+2025-09-07 01:21:28,865 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ DROP TABLE IF EXISTS "trail_trekker"."sqlmesh__raw"."__temp_raw__customers__3881866267_ykk6cg19" (base.py:2466)
+2025-09-07 01:21:28,865 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ COMMENT ON TABLE "trail_trekker"."sqlmesh__raw"."raw__customers__3881866267" IS 'Customers entity per ERD. PK = customer_id. One customer can have many subscriptions.' (base.py:2466)
+2025-09-07 01:21:28,865 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ COMMENT ON COLUMN "trail_trekker"."sqlmesh__raw"."raw__customers__3881866267"."customer_id" IS 'Primary key (ERD underlined).' (base.py:2466)
+2025-09-07 01:21:28,866 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ COMMENT ON COLUMN "trail_trekker"."sqlmesh__raw"."raw__customers__3881866267"."username" IS 'Login/display handle.' (base.py:2466)
+2025-09-07 01:21:28,866 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ COMMENT ON COLUMN "trail_trekker"."sqlmesh__raw"."raw__customers__3881866267"."email" IS 'Contact email (lowercased in staging).' (base.py:2466)
+2025-09-07 01:21:28,866 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ COMMENT ON COLUMN "trail_trekker"."sqlmesh__raw"."raw__customers__3881866267"."phone" IS 'Freeform phone number.' (base.py:2466)
+2025-09-07 01:21:28,866 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ COMMENT ON COLUMN "trail_trekker"."sqlmesh__raw"."raw__customers__3881866267"."first_name" IS 'Given name.' (base.py:2466)
+2025-09-07 01:21:28,866 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ COMMENT ON COLUMN "trail_trekker"."sqlmesh__raw"."raw__customers__3881866267"."last_name" IS 'Family name.' (base.py:2466)
+2025-09-07 01:21:28,867 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ COMMENT ON COLUMN "trail_trekker"."sqlmesh__raw"."raw__customers__3881866267"."location_state" IS 'US state code.' (base.py:2466)
+2025-09-07 01:21:28,867 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ COMMENT ON COLUMN "trail_trekker"."sqlmesh__raw"."raw__customers__3881866267"."location_country" IS 'Country (e.g., USA).' (base.py:2466)
+2025-09-07 01:21:28,867 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ COMMENT ON COLUMN "trail_trekker"."sqlmesh__raw"."raw__customers__3881866267"."profile_created_date" IS 'Account creation date (string in CSV).' (base.py:2466)
+2025-09-07 01:21:28,867 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ COMMENT ON COLUMN "trail_trekker"."sqlmesh__raw"."raw__customers__3881866267"."total_hikes_logged" IS 'Integer-like count of hikes.' (base.py:2466)
+2025-09-07 01:21:28,868 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ COMMENT ON COLUMN "trail_trekker"."sqlmesh__raw"."raw__customers__3881866267"."favorite_trail_type" IS 'Preference (e.g., Mountain, Forest).' (base.py:2466)
+2025-09-07 01:21:28,868 - MainThread - sqlmesh.core.state_sync.db.facade - INFO - Adding interval (2025-09-06 00:00:00, 2025-09-07 00:00:00) for snapshot SnapshotId<"trail_trekker"."raw"."customers": 4125649096> (facade.py:617)
+2025-09-07 01:21:28,868 - MainThread - sqlmesh.core.state_sync.db.interval - INFO - Pushing intervals for snapshot SnapshotId<"trail_trekker"."raw"."customers": 4125649096> (interval.py:214)
+2025-09-07 01:21:28,872 - MainThread - sqlmesh.core.snapshot.evaluator - INFO - Evaluating snapshot SnapshotId<"trail_trekker"."raw"."features": 2323554299> (evaluator.py:701)
+2025-09-07 01:21:28,872 - MainThread - sqlmesh.core.snapshot.evaluator - INFO - Creating table 'trail_trekker.sqlmesh__raw.raw__features__2713381237' (evaluator.py:1763)
+2025-09-07 01:21:28,872 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ SELECT CURRENT_CATALOG() (base.py:2466)
+2025-09-07 01:21:28,873 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ SELECT type FROM DUCKDB_DATABASES() WHERE database_name = 'trail_trekker' (base.py:2466)
+2025-09-07 01:21:28,873 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ CREATE TABLE IF NOT EXISTS "trail_trekker"."sqlmesh__raw"."raw__features__2713381237" ("feature_id" TEXT, "feature_name" TEXT, "feature_description" TEXT, "feature_category" TEXT) (base.py:2466)
+2025-09-07 01:21:28,873 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ COMMENT ON TABLE "trail_trekker"."sqlmesh__raw"."raw__features__2713381237" IS 'Feature reference list.' (base.py:2466)
+2025-09-07 01:21:28,873 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ COMMENT ON COLUMN "trail_trekker"."sqlmesh__raw"."raw__features__2713381237"."feature_id" IS 'Primary ID for a feature' (base.py:2466)
+2025-09-07 01:21:28,873 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ COMMENT ON COLUMN "trail_trekker"."sqlmesh__raw"."raw__features__2713381237"."feature_name" IS 'Marketing-friendly name' (base.py:2466)
+2025-09-07 01:21:28,874 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ COMMENT ON COLUMN "trail_trekker"."sqlmesh__raw"."raw__features__2713381237"."feature_description" IS 'Short description' (base.py:2466)
+2025-09-07 01:21:28,874 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ COMMENT ON COLUMN "trail_trekker"."sqlmesh__raw"."raw__features__2713381237"."feature_category" IS 'Grouping: Core, Advanced, Community' (base.py:2466)
+2025-09-07 01:21:28,875 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ SELECT CURRENT_CATALOG() (base.py:2466)
+2025-09-07 01:21:28,875 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ SELECT CURRENT_CATALOG() (base.py:2466)
+2025-09-07 01:21:28,875 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ SELECT table_name AS name, table_schema AS schema, CASE table_type WHEN 'BASE TABLE' THEN 'table' WHEN 'VIEW' THEN 'view' WHEN 'LOCAL TEMPORARY' THEN 'table' END AS type FROM system.information_schema.tables WHERE (table_catalog = 'trail_trekker' AND table_schema = 'sqlmesh__raw') AND table_name IN ('raw__features__2713381237') (base.py:2466)
+2025-09-07 01:21:28,877 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ SELECT CURRENT_CATALOG() (base.py:2466)
+2025-09-07 01:21:28,878 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ SELECT type FROM DUCKDB_DATABASES() WHERE database_name = 'trail_trekker' (base.py:2466)
+2025-09-07 01:21:28,878 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ CREATE OR REPLACE TABLE "trail_trekker"."sqlmesh__raw"."raw__features__2713381237" AS SELECT CAST("feature_id" AS TEXT) AS "feature_id", CAST("feature_name" AS TEXT) AS "feature_name", CAST("feature_description" AS TEXT) AS "feature_description", CAST("feature_category" AS TEXT) AS "feature_category" FROM (SELECT "feature_id", "feature_name", "feature_description", "feature_category" FROM "trail_trekker"."sqlmesh__raw"."__temp_raw__features__2713381237_42ac5kf2") AS "_subquery" (base.py:2466)
+2025-09-07 01:21:28,879 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ DROP TABLE IF EXISTS "trail_trekker"."sqlmesh__raw"."__temp_raw__features__2713381237_42ac5kf2" (base.py:2466)
+2025-09-07 01:21:28,879 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ COMMENT ON TABLE "trail_trekker"."sqlmesh__raw"."raw__features__2713381237" IS 'Feature reference list.' (base.py:2466)
+2025-09-07 01:21:28,879 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ COMMENT ON COLUMN "trail_trekker"."sqlmesh__raw"."raw__features__2713381237"."feature_id" IS 'Primary ID for a feature' (base.py:2466)
+2025-09-07 01:21:28,879 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ COMMENT ON COLUMN "trail_trekker"."sqlmesh__raw"."raw__features__2713381237"."feature_name" IS 'Marketing-friendly name' (base.py:2466)
+2025-09-07 01:21:28,879 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ COMMENT ON COLUMN "trail_trekker"."sqlmesh__raw"."raw__features__2713381237"."feature_description" IS 'Short description' (base.py:2466)
+2025-09-07 01:21:28,879 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ COMMENT ON COLUMN "trail_trekker"."sqlmesh__raw"."raw__features__2713381237"."feature_category" IS 'Grouping: Core, Advanced, Community' (base.py:2466)
+2025-09-07 01:21:28,880 - MainThread - sqlmesh.core.state_sync.db.facade - INFO - Adding interval (2025-09-06 00:00:00, 2025-09-07 00:00:00) for snapshot SnapshotId<"trail_trekker"."raw"."features": 2323554299> (facade.py:617)
+2025-09-07 01:21:28,880 - MainThread - sqlmesh.core.state_sync.db.interval - INFO - Pushing intervals for snapshot SnapshotId<"trail_trekker"."raw"."features": 2323554299> (interval.py:214)
+2025-09-07 01:21:28,884 - MainThread - sqlmesh.core.snapshot.evaluator - INFO - Evaluating snapshot SnapshotId<"trail_trekker"."raw"."plan_features": 3766509294> (evaluator.py:701)
+2025-09-07 01:21:28,884 - MainThread - sqlmesh.core.snapshot.evaluator - INFO - Creating table 'trail_trekker.sqlmesh__raw.raw__plan_features__1753253188' (evaluator.py:1763)
+2025-09-07 01:21:28,884 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ SELECT CURRENT_CATALOG() (base.py:2466)
+2025-09-07 01:21:28,885 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ SELECT type FROM DUCKDB_DATABASES() WHERE database_name = 'trail_trekker' (base.py:2466)
+2025-09-07 01:21:28,885 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ CREATE TABLE IF NOT EXISTS "trail_trekker"."sqlmesh__raw"."raw__plan_features__1753253188" ("plan_feature_id" TEXT, "plan_id" TEXT, "feature_id" TEXT, "included" BOOLEAN) (base.py:2466)
+2025-09-07 01:21:28,885 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ COMMENT ON TABLE "trail_trekker"."sqlmesh__raw"."raw__plan_features__1753253188" IS 'Feature inclusion map per plan.' (base.py:2466)
+2025-09-07 01:21:28,885 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ COMMENT ON COLUMN "trail_trekker"."sqlmesh__raw"."raw__plan_features__1753253188"."plan_feature_id" IS 'Row ID' (base.py:2466)
+2025-09-07 01:21:28,886 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ COMMENT ON COLUMN "trail_trekker"."sqlmesh__raw"."raw__plan_features__1753253188"."plan_id" IS 'Plan ID' (base.py:2466)
+2025-09-07 01:21:28,886 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ COMMENT ON COLUMN "trail_trekker"."sqlmesh__raw"."raw__plan_features__1753253188"."feature_id" IS 'Feature ID' (base.py:2466)
+2025-09-07 01:21:28,886 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ COMMENT ON COLUMN "trail_trekker"."sqlmesh__raw"."raw__plan_features__1753253188"."included" IS 'Boolean: feature included in plan' (base.py:2466)
+2025-09-07 01:21:28,887 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ SELECT CURRENT_CATALOG() (base.py:2466)
+2025-09-07 01:21:28,887 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ SELECT CURRENT_CATALOG() (base.py:2466)
+2025-09-07 01:21:28,887 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ SELECT table_name AS name, table_schema AS schema, CASE table_type WHEN 'BASE TABLE' THEN 'table' WHEN 'VIEW' THEN 'view' WHEN 'LOCAL TEMPORARY' THEN 'table' END AS type FROM system.information_schema.tables WHERE (table_catalog = 'trail_trekker' AND table_schema = 'sqlmesh__raw') AND table_name IN ('raw__plan_features__1753253188') (base.py:2466)
+2025-09-07 01:21:28,890 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ SELECT CURRENT_CATALOG() (base.py:2466)
+2025-09-07 01:21:28,890 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ SELECT type FROM DUCKDB_DATABASES() WHERE database_name = 'trail_trekker' (base.py:2466)
+2025-09-07 01:21:28,891 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ CREATE OR REPLACE TABLE "trail_trekker"."sqlmesh__raw"."raw__plan_features__1753253188" AS SELECT CAST("plan_feature_id" AS TEXT) AS "plan_feature_id", CAST("plan_id" AS TEXT) AS "plan_id", CAST("feature_id" AS TEXT) AS "feature_id", CAST("included" AS BOOLEAN) AS "included" FROM (SELECT "plan_feature_id", "plan_id", "feature_id", "included" FROM "trail_trekker"."sqlmesh__raw"."__temp_raw__plan_features__1753253188_qw1tyj5k") AS "_subquery" (base.py:2466)
+2025-09-07 01:21:28,891 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ DROP TABLE IF EXISTS "trail_trekker"."sqlmesh__raw"."__temp_raw__plan_features__1753253188_qw1tyj5k" (base.py:2466)
+2025-09-07 01:21:28,891 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ COMMENT ON TABLE "trail_trekker"."sqlmesh__raw"."raw__plan_features__1753253188" IS 'Feature inclusion map per plan.' (base.py:2466)
+2025-09-07 01:21:28,891 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ COMMENT ON COLUMN "trail_trekker"."sqlmesh__raw"."raw__plan_features__1753253188"."plan_feature_id" IS 'Row ID' (base.py:2466)
+2025-09-07 01:21:28,892 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ COMMENT ON COLUMN "trail_trekker"."sqlmesh__raw"."raw__plan_features__1753253188"."plan_id" IS 'Plan ID' (base.py:2466)
+2025-09-07 01:21:28,892 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ COMMENT ON COLUMN "trail_trekker"."sqlmesh__raw"."raw__plan_features__1753253188"."feature_id" IS 'Feature ID' (base.py:2466)
+2025-09-07 01:21:28,892 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ COMMENT ON COLUMN "trail_trekker"."sqlmesh__raw"."raw__plan_features__1753253188"."included" IS 'Boolean: feature included in plan' (base.py:2466)
+2025-09-07 01:21:28,892 - MainThread - sqlmesh.core.state_sync.db.facade - INFO - Adding interval (2025-09-06 00:00:00, 2025-09-07 00:00:00) for snapshot SnapshotId<"trail_trekker"."raw"."plan_features": 3766509294> (facade.py:617)
+2025-09-07 01:21:28,892 - MainThread - sqlmesh.core.state_sync.db.interval - INFO - Pushing intervals for snapshot SnapshotId<"trail_trekker"."raw"."plan_features": 3766509294> (interval.py:214)
+2025-09-07 01:21:28,896 - MainThread - sqlmesh.core.snapshot.evaluator - INFO - Evaluating snapshot SnapshotId<"trail_trekker"."raw"."plans": 2543653718> (evaluator.py:701)
+2025-09-07 01:21:28,896 - MainThread - sqlmesh.core.snapshot.evaluator - INFO - Creating table 'trail_trekker.sqlmesh__raw.raw__plans__3729495492' (evaluator.py:1763)
+2025-09-07 01:21:28,897 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ SELECT CURRENT_CATALOG() (base.py:2466)
+2025-09-07 01:21:28,897 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ SELECT type FROM DUCKDB_DATABASES() WHERE database_name = 'trail_trekker' (base.py:2466)
+2025-09-07 01:21:28,897 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ CREATE TABLE IF NOT EXISTS "trail_trekker"."sqlmesh__raw"."raw__plans__3729495492" ("plan_id" TEXT, "plan_name" TEXT, "plan_level" DOUBLE, "price" DOUBLE, "max_hikes_per_month" DOUBLE, "photo_storage_gb" DOUBLE, "description" TEXT, "created_at" TEXT) (base.py:2466)
+2025-09-07 01:21:28,898 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ COMMENT ON TABLE "trail_trekker"."sqlmesh__raw"."raw__plans__3729495492" IS 'Plans catalog (seeded from CSV).' (base.py:2466)
+2025-09-07 01:21:28,898 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ COMMENT ON COLUMN "trail_trekker"."sqlmesh__raw"."raw__plans__3729495492"."plan_id" IS 'Plan SKU (includes M/A suffix)' (base.py:2466)
+2025-09-07 01:21:28,898 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ COMMENT ON COLUMN "trail_trekker"."sqlmesh__raw"."raw__plans__3729495492"."plan_name" IS 'Explorer / Adventurer / Trail Master' (base.py:2466)
+2025-09-07 01:21:28,898 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ COMMENT ON COLUMN "trail_trekker"."sqlmesh__raw"."raw__plans__3729495492"."plan_level" IS '1..3' (base.py:2466)
+2025-09-07 01:21:28,898 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ COMMENT ON COLUMN "trail_trekker"."sqlmesh__raw"."raw__plans__3729495492"."price" IS 'String in CSV; staged as DECIMAL(10,2)' (base.py:2466)
+2025-09-07 01:21:28,899 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ COMMENT ON COLUMN "trail_trekker"."sqlmesh__raw"."raw__plans__3729495492"."max_hikes_per_month" IS 'Int-like in CSV; staged as INT' (base.py:2466)
+2025-09-07 01:21:28,899 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ COMMENT ON COLUMN "trail_trekker"."sqlmesh__raw"."raw__plans__3729495492"."photo_storage_gb" IS 'Int-like in CSV; staged as INT' (base.py:2466)
+2025-09-07 01:21:28,899 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ COMMENT ON COLUMN "trail_trekker"."sqlmesh__raw"."raw__plans__3729495492"."description" IS 'Plan description' (base.py:2466)
+2025-09-07 01:21:28,899 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ COMMENT ON COLUMN "trail_trekker"."sqlmesh__raw"."raw__plans__3729495492"."created_at" IS 'Plan creation date (string in CSV)' (base.py:2466)
+2025-09-07 01:21:28,900 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ SELECT CURRENT_CATALOG() (base.py:2466)
+2025-09-07 01:21:28,900 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ SELECT CURRENT_CATALOG() (base.py:2466)
+2025-09-07 01:21:28,901 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ SELECT table_name AS name, table_schema AS schema, CASE table_type WHEN 'BASE TABLE' THEN 'table' WHEN 'VIEW' THEN 'view' WHEN 'LOCAL TEMPORARY' THEN 'table' END AS type FROM system.information_schema.tables WHERE (table_catalog = 'trail_trekker' AND table_schema = 'sqlmesh__raw') AND table_name IN ('raw__plans__3729495492') (base.py:2466)
+2025-09-07 01:21:28,903 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ SELECT CURRENT_CATALOG() (base.py:2466)
+2025-09-07 01:21:28,904 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ SELECT type FROM DUCKDB_DATABASES() WHERE database_name = 'trail_trekker' (base.py:2466)
+2025-09-07 01:21:28,904 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ CREATE OR REPLACE TABLE "trail_trekker"."sqlmesh__raw"."raw__plans__3729495492" AS SELECT CAST("plan_id" AS TEXT) AS "plan_id", CAST("plan_name" AS TEXT) AS "plan_name", CAST("plan_level" AS DOUBLE) AS "plan_level", CAST("price" AS DOUBLE) AS "price", CAST("max_hikes_per_month" AS DOUBLE) AS "max_hikes_per_month", CAST("photo_storage_gb" AS DOUBLE) AS "photo_storage_gb", CAST("description" AS TEXT) AS "description", CAST("created_at" AS TEXT) AS "created_at" FROM (SELECT "plan_id", "plan_name", "plan_level", "price", "max_hikes_per_month", "photo_storage_gb", "description", "created_at" FROM "trail_trekker"."sqlmesh__raw"."__temp_raw__plans__3729495492_hk8er0hh") AS "_subquery" (base.py:2466)
+2025-09-07 01:21:28,905 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ DROP TABLE IF EXISTS "trail_trekker"."sqlmesh__raw"."__temp_raw__plans__3729495492_hk8er0hh" (base.py:2466)
+2025-09-07 01:21:28,905 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ COMMENT ON TABLE "trail_trekker"."sqlmesh__raw"."raw__plans__3729495492" IS 'Plans catalog (seeded from CSV).' (base.py:2466)
+2025-09-07 01:21:28,905 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ COMMENT ON COLUMN "trail_trekker"."sqlmesh__raw"."raw__plans__3729495492"."plan_id" IS 'Plan SKU (includes M/A suffix)' (base.py:2466)
+2025-09-07 01:21:28,905 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ COMMENT ON COLUMN "trail_trekker"."sqlmesh__raw"."raw__plans__3729495492"."plan_name" IS 'Explorer / Adventurer / Trail Master' (base.py:2466)
+2025-09-07 01:21:28,905 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ COMMENT ON COLUMN "trail_trekker"."sqlmesh__raw"."raw__plans__3729495492"."plan_level" IS '1..3' (base.py:2466)
+2025-09-07 01:21:28,906 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ COMMENT ON COLUMN "trail_trekker"."sqlmesh__raw"."raw__plans__3729495492"."price" IS 'String in CSV; staged as DECIMAL(10,2)' (base.py:2466)
+2025-09-07 01:21:28,906 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ COMMENT ON COLUMN "trail_trekker"."sqlmesh__raw"."raw__plans__3729495492"."max_hikes_per_month" IS 'Int-like in CSV; staged as INT' (base.py:2466)
+2025-09-07 01:21:28,906 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ COMMENT ON COLUMN "trail_trekker"."sqlmesh__raw"."raw__plans__3729495492"."photo_storage_gb" IS 'Int-like in CSV; staged as INT' (base.py:2466)
+2025-09-07 01:21:28,906 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ COMMENT ON COLUMN "trail_trekker"."sqlmesh__raw"."raw__plans__3729495492"."description" IS 'Plan description' (base.py:2466)
+2025-09-07 01:21:28,906 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ COMMENT ON COLUMN "trail_trekker"."sqlmesh__raw"."raw__plans__3729495492"."created_at" IS 'Plan creation date (string in CSV)' (base.py:2466)
+2025-09-07 01:21:28,906 - MainThread - sqlmesh.core.state_sync.db.facade - INFO - Adding interval (2025-09-06 00:00:00, 2025-09-07 00:00:00) for snapshot SnapshotId<"trail_trekker"."raw"."plans": 2543653718> (facade.py:617)
+2025-09-07 01:21:28,907 - MainThread - sqlmesh.core.state_sync.db.interval - INFO - Pushing intervals for snapshot SnapshotId<"trail_trekker"."raw"."plans": 2543653718> (interval.py:214)
+2025-09-07 01:21:28,910 - MainThread - sqlmesh.core.snapshot.evaluator - INFO - Evaluating snapshot SnapshotId<"trail_trekker"."raw"."subscriptions": 3372355953> (evaluator.py:701)
+2025-09-07 01:21:28,911 - MainThread - sqlmesh.core.snapshot.evaluator - INFO - Creating table 'trail_trekker.sqlmesh__raw.raw__subscriptions__1429161402' (evaluator.py:1763)
+2025-09-07 01:21:28,911 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ SELECT CURRENT_CATALOG() (base.py:2466)
+2025-09-07 01:21:28,911 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ SELECT type FROM DUCKDB_DATABASES() WHERE database_name = 'trail_trekker' (base.py:2466)
+2025-09-07 01:21:28,912 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ CREATE TABLE IF NOT EXISTS "trail_trekker"."sqlmesh__raw"."raw__subscriptions__1429161402" ("subscription_id" TEXT, "customer_id" TEXT, "plan_id" TEXT, "billing_cycle" TEXT, "subscription_start_date" TEXT, "subscription_end_date" TEXT, "status" TEXT, "next_billing_date" TEXT, "payment_method" TEXT) (base.py:2466)
+2025-09-07 01:21:28,912 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ COMMENT ON TABLE "trail_trekker"."sqlmesh__raw"."raw__subscriptions__1429161402" IS 'Raw subscriptions (seeded from CSV).' (base.py:2466)
+2025-09-07 01:21:28,912 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ COMMENT ON COLUMN "trail_trekker"."sqlmesh__raw"."raw__subscriptions__1429161402"."subscription_id" IS 'Primary key' (base.py:2466)
+2025-09-07 01:21:28,912 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ COMMENT ON COLUMN "trail_trekker"."sqlmesh__raw"."raw__subscriptions__1429161402"."customer_id" IS 'FK to customers' (base.py:2466)
+2025-09-07 01:21:28,913 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ COMMENT ON COLUMN "trail_trekker"."sqlmesh__raw"."raw__subscriptions__1429161402"."plan_id" IS 'FK to plans' (base.py:2466)
+2025-09-07 01:21:28,913 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ COMMENT ON COLUMN "trail_trekker"."sqlmesh__raw"."raw__subscriptions__1429161402"."billing_cycle" IS 'monthly / annual (string)' (base.py:2466)
+2025-09-07 01:21:28,913 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ COMMENT ON COLUMN "trail_trekker"."sqlmesh__raw"."raw__subscriptions__1429161402"."subscription_start_date" IS 'Date string in CSV' (base.py:2466)
+2025-09-07 01:21:28,913 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ COMMENT ON COLUMN "trail_trekker"."sqlmesh__raw"."raw__subscriptions__1429161402"."subscription_end_date" IS 'Nullable date string in CSV' (base.py:2466)
+2025-09-07 01:21:28,913 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ COMMENT ON COLUMN "trail_trekker"."sqlmesh__raw"."raw__subscriptions__1429161402"."status" IS 'active / cancelled (string)' (base.py:2466)
+2025-09-07 01:21:28,913 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ COMMENT ON COLUMN "trail_trekker"."sqlmesh__raw"."raw__subscriptions__1429161402"."next_billing_date" IS 'Nullable date string in CSV' (base.py:2466)
+2025-09-07 01:21:28,914 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ COMMENT ON COLUMN "trail_trekker"."sqlmesh__raw"."raw__subscriptions__1429161402"."payment_method" IS 'credit_card, etc.' (base.py:2466)
+2025-09-07 01:21:28,914 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ SELECT CURRENT_CATALOG() (base.py:2466)
+2025-09-07 01:21:28,915 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ SELECT CURRENT_CATALOG() (base.py:2466)
+2025-09-07 01:21:28,915 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ SELECT table_name AS name, table_schema AS schema, CASE table_type WHEN 'BASE TABLE' THEN 'table' WHEN 'VIEW' THEN 'view' WHEN 'LOCAL TEMPORARY' THEN 'table' END AS type FROM system.information_schema.tables WHERE (table_catalog = 'trail_trekker' AND table_schema = 'sqlmesh__raw') AND table_name IN ('raw__subscriptions__1429161402') (base.py:2466)
+2025-09-07 01:21:28,919 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ SELECT CURRENT_CATALOG() (base.py:2466)
+2025-09-07 01:21:28,919 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ SELECT type FROM DUCKDB_DATABASES() WHERE database_name = 'trail_trekker' (base.py:2466)
+2025-09-07 01:21:28,919 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ CREATE OR REPLACE TABLE "trail_trekker"."sqlmesh__raw"."raw__subscriptions__1429161402" AS SELECT CAST("subscription_id" AS TEXT) AS "subscription_id", CAST("customer_id" AS TEXT) AS "customer_id", CAST("plan_id" AS TEXT) AS "plan_id", CAST("billing_cycle" AS TEXT) AS "billing_cycle", CAST("subscription_start_date" AS TEXT) AS "subscription_start_date", CAST("subscription_end_date" AS TEXT) AS "subscription_end_date", CAST("status" AS TEXT) AS "status", CAST("next_billing_date" AS TEXT) AS "next_billing_date", CAST("payment_method" AS TEXT) AS "payment_method" FROM (SELECT "subscription_id", "customer_id", "plan_id", "billing_cycle", "subscription_start_date", "subscription_end_date", "status", "next_billing_date", "payment_method" FROM "trail_trekker"."sqlmesh__raw"."__temp_raw__subscriptions__1429161402_hkzkamc9") AS "_subquery" (base.py:2466)
+2025-09-07 01:21:28,920 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ DROP TABLE IF EXISTS "trail_trekker"."sqlmesh__raw"."__temp_raw__subscriptions__1429161402_hkzkamc9" (base.py:2466)
+2025-09-07 01:21:28,920 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ COMMENT ON TABLE "trail_trekker"."sqlmesh__raw"."raw__subscriptions__1429161402" IS 'Raw subscriptions (seeded from CSV).' (base.py:2466)
+2025-09-07 01:21:28,920 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ COMMENT ON COLUMN "trail_trekker"."sqlmesh__raw"."raw__subscriptions__1429161402"."subscription_id" IS 'Primary key' (base.py:2466)
+2025-09-07 01:21:28,920 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ COMMENT ON COLUMN "trail_trekker"."sqlmesh__raw"."raw__subscriptions__1429161402"."customer_id" IS 'FK to customers' (base.py:2466)
+2025-09-07 01:21:28,921 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ COMMENT ON COLUMN "trail_trekker"."sqlmesh__raw"."raw__subscriptions__1429161402"."plan_id" IS 'FK to plans' (base.py:2466)
+2025-09-07 01:21:28,921 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ COMMENT ON COLUMN "trail_trekker"."sqlmesh__raw"."raw__subscriptions__1429161402"."billing_cycle" IS 'monthly / annual (string)' (base.py:2466)
+2025-09-07 01:21:28,921 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ COMMENT ON COLUMN "trail_trekker"."sqlmesh__raw"."raw__subscriptions__1429161402"."subscription_start_date" IS 'Date string in CSV' (base.py:2466)
+2025-09-07 01:21:28,921 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ COMMENT ON COLUMN "trail_trekker"."sqlmesh__raw"."raw__subscriptions__1429161402"."subscription_end_date" IS 'Nullable date string in CSV' (base.py:2466)
+2025-09-07 01:21:28,921 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ COMMENT ON COLUMN "trail_trekker"."sqlmesh__raw"."raw__subscriptions__1429161402"."status" IS 'active / cancelled (string)' (base.py:2466)
+2025-09-07 01:21:28,922 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ COMMENT ON COLUMN "trail_trekker"."sqlmesh__raw"."raw__subscriptions__1429161402"."next_billing_date" IS 'Nullable date string in CSV' (base.py:2466)
+2025-09-07 01:21:28,922 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ COMMENT ON COLUMN "trail_trekker"."sqlmesh__raw"."raw__subscriptions__1429161402"."payment_method" IS 'credit_card, etc.' (base.py:2466)
+2025-09-07 01:21:28,922 - MainThread - sqlmesh.core.state_sync.db.facade - INFO - Adding interval (2025-09-06 00:00:00, 2025-09-07 00:00:00) for snapshot SnapshotId<"trail_trekker"."raw"."subscriptions": 3372355953> (facade.py:617)
+2025-09-07 01:21:28,922 - MainThread - sqlmesh.core.state_sync.db.interval - INFO - Pushing intervals for snapshot SnapshotId<"trail_trekker"."raw"."subscriptions": 3372355953> (interval.py:214)
+2025-09-07 01:21:28,926 - MainThread - sqlmesh.core.snapshot.evaluator - INFO - Evaluating snapshot SnapshotId<"trail_trekker"."staging"."customers": 425819258> (evaluator.py:701)
+2025-09-07 01:21:28,926 - MainThread - sqlmesh.core.snapshot.evaluator - INFO - Inserting data for snapshot SnapshotId<"trail_trekker"."staging"."customers": 425819258> (evaluator.py:905)
+2025-09-07 01:21:28,927 - MainThread - sqlmesh.core.snapshot.evaluator - INFO - Inserting batch (2025-09-06 00:00:00, 2025-09-07 00:00:00) into trail_trekker.sqlmesh__staging.staging__customers__544997266' (evaluator.py:935)
+2025-09-07 01:21:28,928 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ DESCRIBE "trail_trekker"."sqlmesh__staging"."staging__customers__544997266" (base.py:2466)
+2025-09-07 01:21:28,928 - MainThread - sqlmesh.core.snapshot.evaluator - INFO - Replacing view 'trail_trekker.sqlmesh__staging.staging__customers__544997266' (evaluator.py:2349)
+2025-09-07 01:21:28,928 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ SELECT CURRENT_CATALOG() (base.py:2466)
+2025-09-07 01:21:28,928 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ SELECT CURRENT_CATALOG() (base.py:2466)
+2025-09-07 01:21:28,929 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ SELECT table_name AS name, table_schema AS schema, CASE table_type WHEN 'BASE TABLE' THEN 'table' WHEN 'VIEW' THEN 'view' WHEN 'LOCAL TEMPORARY' THEN 'table' END AS type FROM system.information_schema.tables WHERE (table_catalog = 'trail_trekker' AND table_schema = 'sqlmesh__staging') AND table_name IN ('staging__customers__544997266') (base.py:2466)
+2025-09-07 01:21:28,931 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ CREATE OR REPLACE VIEW "trail_trekker"."sqlmesh__staging"."staging__customers__544997266" ("customer_id", "username", "email", "phone", "first_name", "last_name", "birth_date", "difficulty_preference", "location_city", "location_state", "location_country", "profile_created_at", "total_hikes_logged", "favorite_trail_type") AS SELECT "customer_id" AS "customer_id", "username" AS "username", "email" AS "email", "phone" AS "phone", "first_name" AS "first_name", "last_name" AS "last_name", CAST("date_of_birth" AS TIMESTAMP) AS "birth_date", "preferred_difficulty" AS "difficulty_preference", "location_city" AS "location_city", "location_state" AS "location_state", "location_country" AS "location_country", CAST("profile_created_date" AS TIMESTAMP) AS "profile_created_at", "total_hikes_logged" AS "total_hikes_logged", "favorite_trail_type" AS "favorite_trail_type" FROM "raw_customers" AS "raw_customers" (base.py:2466)
+2025-09-07 01:21:28,931 - MainThread - sqlmesh.core.snapshot.evaluator - INFO - Evaluating snapshot SnapshotId<"trail_trekker"."staging"."features": 4287806856> (evaluator.py:701)
+2025-09-07 01:21:28,931 - MainThread - sqlmesh.core.snapshot.evaluator - INFO - Inserting data for snapshot SnapshotId<"trail_trekker"."staging"."features": 4287806856> (evaluator.py:905)
+2025-09-07 01:21:28,932 - MainThread - sqlmesh.core.snapshot.evaluator - INFO - Inserting batch (2025-09-06 00:00:00, 2025-09-07 00:00:00) into trail_trekker.sqlmesh__staging.staging__features__621034201' (evaluator.py:935)
+2025-09-07 01:21:28,933 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ DESCRIBE "trail_trekker"."sqlmesh__staging"."staging__features__621034201" (base.py:2466)
+2025-09-07 01:21:28,933 - MainThread - sqlmesh.core.snapshot.evaluator - INFO - Replacing view 'trail_trekker.sqlmesh__staging.staging__features__621034201' (evaluator.py:2349)
+2025-09-07 01:21:28,933 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ SELECT CURRENT_CATALOG() (base.py:2466)
+2025-09-07 01:21:28,933 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ SELECT CURRENT_CATALOG() (base.py:2466)
+2025-09-07 01:21:28,934 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ SELECT table_name AS name, table_schema AS schema, CASE table_type WHEN 'BASE TABLE' THEN 'table' WHEN 'VIEW' THEN 'view' WHEN 'LOCAL TEMPORARY' THEN 'table' END AS type FROM system.information_schema.tables WHERE (table_catalog = 'trail_trekker' AND table_schema = 'sqlmesh__staging') AND table_name IN ('staging__features__621034201') (base.py:2466)
+2025-09-07 01:21:28,935 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ CREATE OR REPLACE VIEW "trail_trekker"."sqlmesh__staging"."staging__features__621034201" ("feature_id", "feature_name", "feature_description", "feature_category") AS SELECT "feature_id" AS "feature_id", "feature_name" AS "feature_name", "feature_description" AS "feature_description", "feature_category" AS "feature_category" FROM "raw_features" AS "raw_features" (base.py:2466)
+2025-09-07 01:21:28,936 - MainThread - sqlmesh.core.snapshot.evaluator - INFO - Evaluating snapshot SnapshotId<"trail_trekker"."staging"."plans": 1181153984> (evaluator.py:701)
+2025-09-07 01:21:28,936 - MainThread - sqlmesh.core.snapshot.evaluator - INFO - Inserting data for snapshot SnapshotId<"trail_trekker"."staging"."plans": 1181153984> (evaluator.py:905)
+2025-09-07 01:21:28,937 - MainThread - sqlmesh.core.snapshot.evaluator - INFO - Inserting batch (2025-09-06 00:00:00, 2025-09-07 00:00:00) into trail_trekker.sqlmesh__staging.staging__plans__1444298950' (evaluator.py:935)
+2025-09-07 01:21:28,937 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ DESCRIBE "trail_trekker"."sqlmesh__staging"."staging__plans__1444298950" (base.py:2466)
+2025-09-07 01:21:28,937 - MainThread - sqlmesh.core.snapshot.evaluator - INFO - Replacing view 'trail_trekker.sqlmesh__staging.staging__plans__1444298950' (evaluator.py:2349)
+2025-09-07 01:21:28,937 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ SELECT CURRENT_CATALOG() (base.py:2466)
+2025-09-07 01:21:28,937 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ SELECT CURRENT_CATALOG() (base.py:2466)
+2025-09-07 01:21:28,938 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ SELECT table_name AS name, table_schema AS schema, CASE table_type WHEN 'BASE TABLE' THEN 'table' WHEN 'VIEW' THEN 'view' WHEN 'LOCAL TEMPORARY' THEN 'table' END AS type FROM system.information_schema.tables WHERE (table_catalog = 'trail_trekker' AND table_schema = 'sqlmesh__staging') AND table_name IN ('staging__plans__1444298950') (base.py:2466)
+2025-09-07 01:21:28,939 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ CREATE OR REPLACE VIEW "trail_trekker"."sqlmesh__staging"."staging__plans__1444298950" ("plan_id", "plan_name", "plan_level", "monthly_price_usd_cents", "annual_price_usd_cents", "max_hikes_per_month", "photo_storage_gb", "plan_description") AS SELECT "plan_id" AS "plan_id", "plan_name" AS "plan_name", "plan_level" AS "plan_level", "monthly_price" * 100 AS "monthly_price_usd_cents", "annual_price" * 100 AS "annual_price_usd_cents", "max_hikes_per_month" AS "max_hikes_per_month", "photo_storage_gb" AS "photo_storage_gb", "description" AS "plan_description" FROM "raw_plans" AS "raw_plans" (base.py:2466)
+2025-09-07 01:21:28,939 - MainThread - sqlmesh.core.snapshot.evaluator - INFO - Evaluating snapshot SnapshotId<"trail_trekker"."staging"."subscriptions": 430154679> (evaluator.py:701)
+2025-09-07 01:21:28,940 - MainThread - sqlmesh.core.snapshot.evaluator - INFO - Inserting data for snapshot SnapshotId<"trail_trekker"."staging"."subscriptions": 430154679> (evaluator.py:905)
+2025-09-07 01:21:28,941 - MainThread - sqlmesh.core.snapshot.evaluator - INFO - Inserting batch (2025-09-06 00:00:00, 2025-09-07 00:00:00) into trail_trekker.sqlmesh__staging.staging__subscriptions__662248324' (evaluator.py:935)
+2025-09-07 01:21:28,941 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ DESCRIBE "trail_trekker"."sqlmesh__staging"."staging__subscriptions__662248324" (base.py:2466)
+2025-09-07 01:21:28,942 - MainThread - sqlmesh.core.snapshot.evaluator - INFO - Replacing view 'trail_trekker.sqlmesh__staging.staging__subscriptions__662248324' (evaluator.py:2349)
+2025-09-07 01:21:28,942 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ SELECT CURRENT_CATALOG() (base.py:2466)
+2025-09-07 01:21:28,942 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ SELECT CURRENT_CATALOG() (base.py:2466)
+2025-09-07 01:21:28,943 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ SELECT table_name AS name, table_schema AS schema, CASE table_type WHEN 'BASE TABLE' THEN 'table' WHEN 'VIEW' THEN 'view' WHEN 'LOCAL TEMPORARY' THEN 'table' END AS type FROM system.information_schema.tables WHERE (table_catalog = 'trail_trekker' AND table_schema = 'sqlmesh__staging') AND table_name IN ('staging__subscriptions__662248324') (base.py:2466)
+2025-09-07 01:21:28,945 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: /* SQLMESH_PLAN: ca054c864f30470c98a83ed37bc49e8c */ CREATE OR REPLACE VIEW "trail_trekker"."sqlmesh__staging"."staging__subscriptions__662248324" ("subscription_id", "customer_id", "plan_id", "billing_cadence", "subscription_started_at", "subscription_ended_at", "subscription_status", "next_billing_at", "payment_method") AS SELECT "subscription_id" AS "subscription_id", "customer_id" AS "customer_id", "plan_id" AS "plan_id", "billing_cycle" AS "billing_cadence", CAST("subscription_start_date" AS TIMESTAMP) AS "subscription_started_at", CAST("subscription_end_date" AS TIMESTAMP) AS "subscription_ended_at", "status" AS "subscription_status", CAST("next_billing_date" AS TIMESTAMP) AS "next_billing_at", "payment_method" AS "payment_method" FROM "raw_subscriptions" AS "raw_subscriptions" (base.py:2466)
+2025-09-07 01:21:28,946 - MainThread - sqlmesh.core.scheduler - INFO - Execution failed for node EvaluateNode(snapshot_name='"trail_trekker"."staging"."customers"', interval=(1757116800000, 1757203200000), batch_index=0) (scheduler.py:588)
+Traceback (most recent call last):
+  File "/Users/atishdhamala/Trail Trekker Data Pipeline/.venv/lib/python3.11/site-packages/sqlmesh/utils/concurrency.py", line 234, in sequential_apply_to_dag
+    fn(node)
+  File "/Users/atishdhamala/Trail Trekker Data Pipeline/.venv/lib/python3.11/site-packages/sqlmesh/core/scheduler.py", line 525, in run_node
+    audit_results = self.evaluate(
+                    ^^^^^^^^^^^^^^
+  File "/Users/atishdhamala/Trail Trekker Data Pipeline/.venv/lib/python3.11/site-packages/sqlmesh/core/scheduler.py", line 229, in evaluate
+    wap_id = self.snapshot_evaluator.evaluate(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/atishdhamala/Trail Trekker Data Pipeline/.venv/lib/python3.11/site-packages/sqlmesh/core/snapshot/evaluator.py", line 182, in evaluate
+    result = self._evaluate_snapshot(
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/atishdhamala/Trail Trekker Data Pipeline/.venv/lib/python3.11/site-packages/sqlmesh/core/snapshot/evaluator.py", line 792, in _evaluate_snapshot
+    self._render_and_insert_snapshot(
+  File "/Users/atishdhamala/Trail Trekker Data Pipeline/.venv/lib/python3.11/site-packages/sqlmesh/core/snapshot/evaluator.py", line 985, in _render_and_insert_snapshot
+    apply(query_or_df, index)
+  File "/Users/atishdhamala/Trail Trekker Data Pipeline/.venv/lib/python3.11/site-packages/sqlmesh/core/snapshot/evaluator.py", line 941, in apply
+    evaluation_strategy.insert(
+  File "/Users/atishdhamala/Trail Trekker Data Pipeline/.venv/lib/python3.11/site-packages/sqlmesh/core/snapshot/evaluator.py", line 2350, in insert
+    self.adapter.create_view(
+  File "/Users/atishdhamala/Trail Trekker Data Pipeline/.venv/lib/python3.11/site-packages/sqlmesh/core/engine_adapter/shared.py", line 312, in internal_wrapper
+    return func(*list_args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/atishdhamala/Trail Trekker Data Pipeline/.venv/lib/python3.11/site-packages/sqlmesh/core/engine_adapter/base.py", line 1309, in create_view
+    self.execute(
+  File "/Users/atishdhamala/Trail Trekker Data Pipeline/.venv/lib/python3.11/site-packages/sqlmesh/core/engine_adapter/base.py", line 2443, in execute
+    self._execute(sql, track_rows_processed, **kwargs)
+  File "/Users/atishdhamala/Trail Trekker Data Pipeline/.venv/lib/python3.11/site-packages/sqlmesh/core/engine_adapter/base.py", line 2475, in _execute
+    self.cursor.execute(sql, **kwargs)
+duckdb.duckdb.CatalogException: Catalog Error: Table with name raw_customers does not exist!
+Did you mean "sqlmesh__raw.raw__customers__3881866267"?
+
+LINE 1: ...gged", "favorite_trail_type" AS "favorite_trail_type" FROM "raw_customers" AS "raw_customers"
+                                                                      ^
+
+The above exception was the direct cause of the following exception:
+
+sqlmesh.utils.concurrency.NodeExecutionFailedError: Execution failed for node EvaluateNode(snapshot_name='"trail_trekker"."staging"."customers"', interval=(1757116800000, 1757203200000), batch_index=0)
+2025-09-07 01:21:28,948 - MainThread - sqlmesh.core.scheduler - INFO - Execution failed for node EvaluateNode(snapshot_name='"trail_trekker"."staging"."features"', interval=(1757116800000, 1757203200000), batch_index=0) (scheduler.py:588)
+Traceback (most recent call last):
+  File "/Users/atishdhamala/Trail Trekker Data Pipeline/.venv/lib/python3.11/site-packages/sqlmesh/utils/concurrency.py", line 234, in sequential_apply_to_dag
+    fn(node)
+  File "/Users/atishdhamala/Trail Trekker Data Pipeline/.venv/lib/python3.11/site-packages/sqlmesh/core/scheduler.py", line 525, in run_node
+    audit_results = self.evaluate(
+                    ^^^^^^^^^^^^^^
+  File "/Users/atishdhamala/Trail Trekker Data Pipeline/.venv/lib/python3.11/site-packages/sqlmesh/core/scheduler.py", line 229, in evaluate
+    wap_id = self.snapshot_evaluator.evaluate(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/atishdhamala/Trail Trekker Data Pipeline/.venv/lib/python3.11/site-packages/sqlmesh/core/snapshot/evaluator.py", line 182, in evaluate
+    result = self._evaluate_snapshot(
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/atishdhamala/Trail Trekker Data Pipeline/.venv/lib/python3.11/site-packages/sqlmesh/core/snapshot/evaluator.py", line 792, in _evaluate_snapshot
+    self._render_and_insert_snapshot(
+  File "/Users/atishdhamala/Trail Trekker Data Pipeline/.venv/lib/python3.11/site-packages/sqlmesh/core/snapshot/evaluator.py", line 985, in _render_and_insert_snapshot
+    apply(query_or_df, index)
+  File "/Users/atishdhamala/Trail Trekker Data Pipeline/.venv/lib/python3.11/site-packages/sqlmesh/core/snapshot/evaluator.py", line 941, in apply
+    evaluation_strategy.insert(
+  File "/Users/atishdhamala/Trail Trekker Data Pipeline/.venv/lib/python3.11/site-packages/sqlmesh/core/snapshot/evaluator.py", line 2350, in insert
+    self.adapter.create_view(
+  File "/Users/atishdhamala/Trail Trekker Data Pipeline/.venv/lib/python3.11/site-packages/sqlmesh/core/engine_adapter/shared.py", line 312, in internal_wrapper
+    return func(*list_args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/atishdhamala/Trail Trekker Data Pipeline/.venv/lib/python3.11/site-packages/sqlmesh/core/engine_adapter/base.py", line 1309, in create_view
+    self.execute(
+  File "/Users/atishdhamala/Trail Trekker Data Pipeline/.venv/lib/python3.11/site-packages/sqlmesh/core/engine_adapter/base.py", line 2443, in execute
+    self._execute(sql, track_rows_processed, **kwargs)
+  File "/Users/atishdhamala/Trail Trekker Data Pipeline/.venv/lib/python3.11/site-packages/sqlmesh/core/engine_adapter/base.py", line 2475, in _execute
+    self.cursor.execute(sql, **kwargs)
+duckdb.duckdb.CatalogException: Catalog Error: Table with name raw_features does not exist!
+Did you mean "sqlmesh__raw.raw__features__2713381237"?
+
+LINE 1: ...escription", "feature_category" AS "feature_category" FROM "raw_features" AS "raw_features"
+                                                                      ^
+
+The above exception was the direct cause of the following exception:
+
+sqlmesh.utils.concurrency.NodeExecutionFailedError: Execution failed for node EvaluateNode(snapshot_name='"trail_trekker"."staging"."features"', interval=(1757116800000, 1757203200000), batch_index=0)
+2025-09-07 01:21:28,948 - MainThread - sqlmesh.core.scheduler - INFO - Execution failed for node EvaluateNode(snapshot_name='"trail_trekker"."staging"."plans"', interval=(1757116800000, 1757203200000), batch_index=0) (scheduler.py:588)
+Traceback (most recent call last):
+  File "/Users/atishdhamala/Trail Trekker Data Pipeline/.venv/lib/python3.11/site-packages/sqlmesh/utils/concurrency.py", line 234, in sequential_apply_to_dag
+    fn(node)
+  File "/Users/atishdhamala/Trail Trekker Data Pipeline/.venv/lib/python3.11/site-packages/sqlmesh/core/scheduler.py", line 525, in run_node
+    audit_results = self.evaluate(
+                    ^^^^^^^^^^^^^^
+  File "/Users/atishdhamala/Trail Trekker Data Pipeline/.venv/lib/python3.11/site-packages/sqlmesh/core/scheduler.py", line 229, in evaluate
+    wap_id = self.snapshot_evaluator.evaluate(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/atishdhamala/Trail Trekker Data Pipeline/.venv/lib/python3.11/site-packages/sqlmesh/core/snapshot/evaluator.py", line 182, in evaluate
+    result = self._evaluate_snapshot(
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/atishdhamala/Trail Trekker Data Pipeline/.venv/lib/python3.11/site-packages/sqlmesh/core/snapshot/evaluator.py", line 792, in _evaluate_snapshot
+    self._render_and_insert_snapshot(
+  File "/Users/atishdhamala/Trail Trekker Data Pipeline/.venv/lib/python3.11/site-packages/sqlmesh/core/snapshot/evaluator.py", line 985, in _render_and_insert_snapshot
+    apply(query_or_df, index)
+  File "/Users/atishdhamala/Trail Trekker Data Pipeline/.venv/lib/python3.11/site-packages/sqlmesh/core/snapshot/evaluator.py", line 941, in apply
+    evaluation_strategy.insert(
+  File "/Users/atishdhamala/Trail Trekker Data Pipeline/.venv/lib/python3.11/site-packages/sqlmesh/core/snapshot/evaluator.py", line 2350, in insert
+    self.adapter.create_view(
+  File "/Users/atishdhamala/Trail Trekker Data Pipeline/.venv/lib/python3.11/site-packages/sqlmesh/core/engine_adapter/shared.py", line 312, in internal_wrapper
+    return func(*list_args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/atishdhamala/Trail Trekker Data Pipeline/.venv/lib/python3.11/site-packages/sqlmesh/core/engine_adapter/base.py", line 1309, in create_view
+    self.execute(
+  File "/Users/atishdhamala/Trail Trekker Data Pipeline/.venv/lib/python3.11/site-packages/sqlmesh/core/engine_adapter/base.py", line 2443, in execute
+    self._execute(sql, track_rows_processed, **kwargs)
+  File "/Users/atishdhamala/Trail Trekker Data Pipeline/.venv/lib/python3.11/site-packages/sqlmesh/core/engine_adapter/base.py", line 2475, in _execute
+    self.cursor.execute(sql, **kwargs)
+duckdb.duckdb.CatalogException: Catalog Error: Table with name raw_plans does not exist!
+Did you mean "sqlmesh__raw.raw__plans__3729495492"?
+
+LINE 1: ... "photo_storage_gb", "description" AS "plan_description" FROM "raw_plans" AS "raw_plans"
+                                                                         ^
+
+The above exception was the direct cause of the following exception:
+
+sqlmesh.utils.concurrency.NodeExecutionFailedError: Execution failed for node EvaluateNode(snapshot_name='"trail_trekker"."staging"."plans"', interval=(1757116800000, 1757203200000), batch_index=0)
+2025-09-07 01:21:28,949 - MainThread - sqlmesh.core.scheduler - INFO - Execution failed for node EvaluateNode(snapshot_name='"trail_trekker"."staging"."subscriptions"', interval=(1757116800000, 1757203200000), batch_index=0) (scheduler.py:588)
+Traceback (most recent call last):
+  File "/Users/atishdhamala/Trail Trekker Data Pipeline/.venv/lib/python3.11/site-packages/sqlmesh/utils/concurrency.py", line 234, in sequential_apply_to_dag
+    fn(node)
+  File "/Users/atishdhamala/Trail Trekker Data Pipeline/.venv/lib/python3.11/site-packages/sqlmesh/core/scheduler.py", line 525, in run_node
+    audit_results = self.evaluate(
+                    ^^^^^^^^^^^^^^
+  File "/Users/atishdhamala/Trail Trekker Data Pipeline/.venv/lib/python3.11/site-packages/sqlmesh/core/scheduler.py", line 229, in evaluate
+    wap_id = self.snapshot_evaluator.evaluate(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/atishdhamala/Trail Trekker Data Pipeline/.venv/lib/python3.11/site-packages/sqlmesh/core/snapshot/evaluator.py", line 182, in evaluate
+    result = self._evaluate_snapshot(
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/atishdhamala/Trail Trekker Data Pipeline/.venv/lib/python3.11/site-packages/sqlmesh/core/snapshot/evaluator.py", line 792, in _evaluate_snapshot
+    self._render_and_insert_snapshot(
+  File "/Users/atishdhamala/Trail Trekker Data Pipeline/.venv/lib/python3.11/site-packages/sqlmesh/core/snapshot/evaluator.py", line 985, in _render_and_insert_snapshot
+    apply(query_or_df, index)
+  File "/Users/atishdhamala/Trail Trekker Data Pipeline/.venv/lib/python3.11/site-packages/sqlmesh/core/snapshot/evaluator.py", line 941, in apply
+    evaluation_strategy.insert(
+  File "/Users/atishdhamala/Trail Trekker Data Pipeline/.venv/lib/python3.11/site-packages/sqlmesh/core/snapshot/evaluator.py", line 2350, in insert
+    self.adapter.create_view(
+  File "/Users/atishdhamala/Trail Trekker Data Pipeline/.venv/lib/python3.11/site-packages/sqlmesh/core/engine_adapter/shared.py", line 312, in internal_wrapper
+    return func(*list_args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/atishdhamala/Trail Trekker Data Pipeline/.venv/lib/python3.11/site-packages/sqlmesh/core/engine_adapter/base.py", line 1309, in create_view
+    self.execute(
+  File "/Users/atishdhamala/Trail Trekker Data Pipeline/.venv/lib/python3.11/site-packages/sqlmesh/core/engine_adapter/base.py", line 2443, in execute
+    self._execute(sql, track_rows_processed, **kwargs)
+  File "/Users/atishdhamala/Trail Trekker Data Pipeline/.venv/lib/python3.11/site-packages/sqlmesh/core/engine_adapter/base.py", line 2475, in _execute
+    self.cursor.execute(sql, **kwargs)
+duckdb.duckdb.CatalogException: Catalog Error: Table with name raw_subscriptions does not exist!
+Did you mean "sqlmesh__raw.raw__subscriptions__1429161402"?
+
+LINE 1: ... "next_billing_at", "payment_method" AS "payment_method" FROM "raw_subscriptions" AS "raw_subscriptions"
+                                                                         ^
+
+The above exception was the direct cause of the following exception:
+
+sqlmesh.utils.concurrency.NodeExecutionFailedError: Execution failed for node EvaluateNode(snapshot_name='"trail_trekker"."staging"."subscriptions"', interval=(1757116800000, 1757203200000), batch_index=0)
+2025-09-07 01:21:28,951 - MainThread - sqlmesh.core.context - INFO - Plan application failed. (context.py:1729)
+Traceback (most recent call last):
+  File "/Users/atishdhamala/Trail Trekker Data Pipeline/.venv/lib/python3.11/site-packages/sqlmesh/core/context.py", line 1721, in apply
+    self._apply(plan, circuit_breaker)
+  File "/Users/atishdhamala/Trail Trekker Data Pipeline/.venv/lib/python3.11/site-packages/sqlmesh/core/context.py", line 2514, in _apply
+    self._scheduler.create_plan_evaluator(self).evaluate(
+  File "/Users/atishdhamala/Trail Trekker Data Pipeline/.venv/lib/python3.11/site-packages/sqlmesh/core/plan/evaluator.py", line 107, in evaluate
+    self._evaluate_stages(plan_stages, plan)
+  File "/Users/atishdhamala/Trail Trekker Data Pipeline/.venv/lib/python3.11/site-packages/sqlmesh/core/plan/evaluator.py", line 127, in _evaluate_stages
+    handler(stage, plan)
+  File "/Users/atishdhamala/Trail Trekker Data Pipeline/.venv/lib/python3.11/site-packages/sqlmesh/core/plan/evaluator.py", line 262, in visit_backfill_stage
+    raise PlanError("Plan application failed.")
+sqlmesh.utils.errors.PlanError: Plan application failed.
+2025-09-07 01:21:28,966 - MainThread - root - INFO - Shutting down the event dispatcher (dispatcher.py:159)

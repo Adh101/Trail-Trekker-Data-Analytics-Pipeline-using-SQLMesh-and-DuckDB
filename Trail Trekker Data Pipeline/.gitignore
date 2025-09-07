@@ -1,0 +1,37 @@
+# init with main as the default branch
+git init -b main
+
+# (optional) a basic .gitignore so you don’t commit DBs/venv
+cat > .gitignore <<'EOF'
+# macOS
+.DS_Store
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# SQLMesh local state
+.sqlmesh/
+.cache/
+
+# DuckDB / data artifacts
+*.db
+*.duckdb
+*.wal
+*.parquet
+
+# IDE
+.vscode/
+.idea/
+EOF
+
+# add your project files
+git add .
+git commit -m "Initial commit: SQLMesh seeds, staging, audits"
+
+# add your remote (use the .git URL)
+git remote add origin https://github.com/Adh101/Trail-Trekker-Data-Analytics-Pipeline-using-SQLMesh-and-DuckDB.git
+
+# push
+git push -u origin main
