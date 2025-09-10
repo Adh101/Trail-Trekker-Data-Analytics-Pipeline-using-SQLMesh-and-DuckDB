@@ -167,20 +167,5 @@ I started by choosing a storage/compute engine and a simple way to load seed dat
 - If you add a new source, **seed → stage → dimension/fact**, and add **audits** at each step.
 - If you need history in the plan catalog, convert `dim_plans` to **SCD-2** (SQLMesh supports it with `kind SCD_TYPE_2`).
 - For prod, replace local cron with Airflow/Dagster or Tobiko Cloud and use a server-side warehouse.
----
-## Quick Start Commands:
-```
-# create & activate venv
-python3 -m venv .venv && source .venv/bin/activate
-pip install sqlmesh duckdb duckdb-engine
 
-# compile & run (dev)
-cd trail-trekker
-sqlmesh plan dev
-sqlmesh run dev
-
-# promote & run (prod)
-sqlmesh plan prod --auto-apply
-sqlmesh run prod
-```
 
