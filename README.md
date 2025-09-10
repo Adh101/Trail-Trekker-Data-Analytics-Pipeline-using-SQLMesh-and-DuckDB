@@ -176,29 +176,29 @@ I started by choosing a storage/compute engine and a simple way to load seed dat
 
    ```
 2. Install all dependencies
-  ```
-   pip install -U pip
-    pip install sqlmesh duckdb duckdb-engine
+   ```
+      pip install -U pip
+      pip install sqlmesh duckdb duckdb-engine
 
    ```
 3. Run the SQLMesh project
    ```
-   # Validate / compile models into the dev environment
-    sqlmesh plan dev
+       # Validate / compile models into the dev environment
+        sqlmesh plan dev
 
-    # Execute models on their schedules (or immediately if due)
-      sqlmesh run dev 
+      # Execute models on their schedules (or immediately if due)
+        sqlmesh run dev 
 
    ```
 4. Dev ↔ Prod Workflow
- ```
-   # Develop changes safely
-    sqlmesh plan dev
-    sqlmesh run dev
+   ```
+     # Develop changes safely
+      sqlmesh plan dev
+      sqlmesh run dev
 
-    # Promote to prod (applies snapshots, state, schemas)
-    sqlmesh plan prod --auto-apply
-    sqlmesh run prod
+     # Promote to prod (applies snapshots, state, schemas)
+      sqlmesh plan prod --auto-apply
+      sqlmesh run prod
    ```
    
 ## Solution
