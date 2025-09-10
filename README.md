@@ -147,7 +147,7 @@ I started by choosing a storage/compute engine and a simple way to load seed dat
   - Switch the warehouse from local DuckDB to a server database for concurrency and shared access.
 
 ---
-### Decisions & Roadblocks (highlights)
+## Decisions & Roadblocks (highlights)
 
 - **Data quality**: Numeric fields were strings; fixed via regex + casts in staging. Placeholder `plan_id='000000'` removed.
 - **Feature mapping**: `plan_features.plan_id` doesn’t match `plans.plan_id` suffixes; postponed joining features to keep the MVP clear.
@@ -163,6 +163,44 @@ I started by choosing a storage/compute engine and a simple way to load seed dat
 - For prod, replace local cron with Airflow/Dagster or Tobiko Cloud and use a server-side warehouse.
 
 ---
+---
+## Get Started
+
+1. Clone the repo and create the virtualenv
+   ```
+      git clone https://github.com/Adh101/Trail-Trekker-Data-Analytics-Pipeline-using-SQLMesh-and-DuckDB.git
+      cd "Trail Trekker Data Pipeline"
+      
+      python3 -m venv .venv
+      source .venv/bin/activate
+
+   ```
+2. Install all dependencies
+  ```
+   pip install -U pip
+    pip install sqlmesh duckdb duckdb-engine
+
+   ```
+3. Run the SQLMesh project
+   ```
+   # Validate / compile models into the dev environment
+    sqlmesh plan dev
+
+    # Execute models on their schedules (or immediately if due)
+      sqlmesh run dev 
+
+   ```
+4. Dev ↔ Prod Workflow
+ ```
+   # Develop changes safely
+    sqlmesh plan dev
+    sqlmesh run dev
+
+    # Promote to prod (applies snapshots, state, schemas)
+    sqlmesh plan prod --auto-apply
+    sqlmesh run prod
+   ```
+   
 ## Solution
 
 **What we built**
