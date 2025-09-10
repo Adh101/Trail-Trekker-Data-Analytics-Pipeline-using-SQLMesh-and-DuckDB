@@ -21,6 +21,7 @@ Fresh, hourly metrics for Trail-Trekker using **DuckDB** for storage and **SQLMe
 
 ---
 ## Repository Structure
+"""
 Trail Trekker Data Pipeline/
 ├─ run_trail_trekker_pipeline.sh           # local cron runner (hourly)
 └─ trail-trekker/                          # SQLMesh project root (has sqlmesh.yaml)
@@ -36,4 +37,4 @@ Trail Trekker Data Pipeline/
    ├─ seeds/                               # (optional) CSVs for raw ingestion
    ├─ tests/                               # (optional) model tests
    └─ sqlmesh.yaml                         # SQLMesh config
-
+"""
