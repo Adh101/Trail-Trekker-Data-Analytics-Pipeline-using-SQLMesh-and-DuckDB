@@ -153,7 +153,19 @@ I started by choosing a storage/compute engine and a simple way to load seed dat
   - Switch the warehouse from local DuckDB to a server database for concurrency and shared access.
 
 ---
-
-
-
+## Quick Start Commands:
 ```
+# create & activate venv
+python3 -m venv .venv && source .venv/bin/activate
+pip install sqlmesh duckdb duckdb-engine
+
+# compile & run (dev)
+cd trail-trekker
+sqlmesh plan dev
+sqlmesh run dev
+
+# promote & run (prod)
+sqlmesh plan prod --auto-apply
+sqlmesh run prod
+```
+
