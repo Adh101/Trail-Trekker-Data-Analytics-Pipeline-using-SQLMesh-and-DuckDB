@@ -27,8 +27,7 @@ To build the data warehouse for the data collected by Trail Trekker using **Duck
 ## 📂 Repository Structure
 ```
 Trail Trekker Data Pipeline/
-├─ .venv/                                   # local virtualenv (do not commit)
-├─ data/                                    # optional raw/derived local files (ignore in git)
+├─ data/                                    # csv files
 │  ├─ customers.csv
 │  ├─ features.csv
 │  ├─ pla_features.csv
