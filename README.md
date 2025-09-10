@@ -153,6 +153,21 @@ I started by choosing a storage/compute engine and a simple way to load seed dat
   - Switch the warehouse from local DuckDB to a server database for concurrency and shared access.
 
 ---
+### Decisions & Roadblocks (highlights)
+
+- **Data quality**: Numeric fields were strings; fixed via regex + casts in staging. Placeholder `plan_id='000000'` removed.
+- **Feature mapping**: `plan_features.plan_id` doesn’t match `plans.plan_id` suffixes; postponed joining features to keep the MVP clear.
+- **Temporal rules**: Carefully defined what constitutes a “change” vs. “new subscription” and encoded those rules in a single change-detection query with `LAG`.
+
+---
+
+### Hand-off summary
+
+- Use **staging** for all type/casing/format fixes; keep **warehouse** thin and semantic.
+- If you add a new source, **seed → stage → dimension/fact**, and add **audits** at each step.
+- If you need history in the plan catalog, convert `dim_plans` to **SCD-2** (SQLMesh supports it with `kind SCD_TYPE_2`).
+- For prod, replace local cron with Airflow/Dagster or Tobiko Cloud and use a server-side warehouse.
+---
 ## Quick Start Commands:
 ```
 # create & activate venv
