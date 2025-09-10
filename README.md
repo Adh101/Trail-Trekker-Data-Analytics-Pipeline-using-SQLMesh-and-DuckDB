@@ -4,6 +4,10 @@
 
 Fresh, hourly metrics for Trail-Trekker using **DuckDB** for storage and **SQLMesh** for modeling, scheduling, and deployments.
 
+## Objective:
+To build the data warehouse for the data collected by Trail Trekker using **DuckDB** and data models using **SQLMesh**. Further, extend the data modeling to understand the subscription changes on a daily basis for their customers.
+
+## Key Steps:
 - **Seeds (CSV-backed “raw”)** → loaded into DuckDB  
 - **Staging models** → type/format cleanup & normalization  
 - **Dimensional models** → `warehouse.dim_plans` (SCD-1)  
