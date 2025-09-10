@@ -73,11 +73,6 @@ I started by choosing a storage/compute engine and a simple way to load seed dat
 - **Fast local analytics**: Columnar, vectorized, great for dev/POC loops.
 - **Zero infra**: A single file (`trail_trekker.db`) keeps the project portable.
 - **SQL-native CSV ingestion**: Easy seeds via `read_csv_auto()` or SQLMesh seed models.
-
-**Tradeoffs**
-- **Single-writer, local file**: Great locally; not ideal for multi-user/cloud. For production, switch to a server DB (Postgres/Snowflake/BigQuery) or put DuckDB on shared storage with clear write patterns.
-- **Orchestration in the cloud**: Local files don’t exist on workers; would need packaging or a different warehouse in Airflow/Composer/MWAA.
-
 ---
 
 ### Milestone 2 — Data Modeling
