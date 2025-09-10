@@ -167,4 +167,65 @@ I started by choosing a storage/compute engine and a simple way to load seed dat
 - If you need history in the plan catalog, convert `dim_plans` to **SCD-2** (SQLMesh supports it with `kind SCD_TYPE_2`).
 - For prod, replace local cron with Airflow/Dagster or Tobiko Cloud and use a server-side warehouse.
 
+---
+## Solution
+
+**What we built**
+
+- **Local analytics stack** using **DuckDB** (file-backed) and **SQLMesh** (modeling + scheduling).
+- **Data model** following a simple **ELT** pattern:
+  - **Staging**: type coercions, trimming, date parsing, and removal of placeholder rows.
+  - **Warehouse**:
+    - `warehouse.dim_plans` (**SCD-1**): one row per `plan_id`, clean attributes + derived `billing_period`.
+    - `warehouse.fct_subscription_changes`: one row per **plan switch** or **terminal cancellation** with clear business rules:
+      - New subscriptions are **not** change events.
+      - **PLAN_CHANGE** when `plan_id` differs from the prior segment; `change_date` = new segment start.
+      - **CANCELLATION** for the last segment; `change_date` = `subscription_end_date`.
+- **Orchestration**
+  - Model-level cron inside SQLMesh:
+    - `fct_subscription_changes`: `@hourly` for fresher metrics.
+    - `dim_plans`: daily (e.g., `0 2 * * *`).
+  - **Local cron** runner script calls `sqlmesh plan prod --auto-apply` then `sqlmesh run prod` hourly.
+- **Audits**
+  - Not-null checks on key fields (e.g., `plan_id`, `price`, `change_type`, `change_date`) to catch upstream issues early.
+
+**What questions it answers**
+
+- Which plans are users switching **from** and **to** (including monthly ↔ annual)?  
+- When do cancellations happen and from which plans?  
+- How long users stay on a plan before switching (via `days_on_previous_plan`, if included).  
+- Foundation for churn/upgrade/downgrade and MRR/ARR metrics when combined with pricing.
+
+---
+
+## Next Steps
+
+**Data model & features**
+- **Map plan features** into the model:
+  - Normalize `plan_features.plan_id` (e.g., strip `M/A` suffix) and join features to a widened `dim_plans` or a bridge table.
+- **Add dimensions/facts**:
+  - `dim_customers` (light PII-safe dimension) and a `fct_subscriptions` snapshot (one row per active day/month) for daily active counts.
+- **Historical attributes**:
+  - If plan pricing/limits change, convert `dim_plans` to **SCD-2** for time-variant analysis.
+
+**Data quality & testing**
+- Expand **audits**: uniqueness checks on natural keys, valid value sets for `billing_cycle`/`status`.
+- Add **unit tests** for edge cases (same-day switches, missing end dates, invalid plan IDs).
+- Implement **source freshness** checks and basic **volume**/anomaly monitors.
+
+**Orchestration & deployment**
+- Keep local cron for dev; for prod:
+  - Use **Airflow/Dagster/GitHub Actions** (hourly trigger; SQLMesh still decides which models are due), or
+  - Use **SQLMesh Cloud (Tobiko)** for hosted, model-aware scheduling.
+- Move from local DuckDB to a **server warehouse** (Postgres/Snowflake/BigQuery) for concurrency and shared access.
+- Add **CI**: on PR, run `sqlmesh plan dev` + audits/tests; on main, `plan prod --auto-apply`.
+
+**Performance & ops**
+- Make high-volume models **incremental** where appropriate.
+- Add **observability** (run times, row counts, failure alerts).
+- Harden **secrets management** (env vars or a secrets manager) and define **data retention** policies.
+
+> Prioritize feature mapping + metrics definitions next. Then productionize orchestration and move to a shared warehouse as collaboration grows.
+
+
 
