@@ -6,9 +6,9 @@ MODEL (
   )
 );
 
-SELECT 
-    feature_id,
-    feature_name,
-    feature_description,
-    feature_category
-FROM raw.features
+SELECT
+  feature_id,
+  TRIM(feature_name) AS feature_name,
+  TRIM(feature_description) AS feature_description,
+  UPPER(TRIM(feature_category)) AS feature_category
+FROM trail_trekker.raw.features
