@@ -29,6 +29,11 @@ To build the data warehouse for the data collected by Trail Trekker using **Duck
 Trail Trekker Data Pipeline/
 ├─ .venv/                                   # local virtualenv (do not commit)
 ├─ data/                                    # optional raw/derived local files (ignore in git)
+│  ├─ customers.csv
+│  ├─ features.csv
+│  ├─ pla_features.csv
+│  ├─ plans.csv
+│  ├─ subscriptions.csv
 ├─ logs/                                    # local logs (ignore in git)
 ├─ trail-trekker/                           # SQLMesh project root
 │  ├─ .cache/                               # SQLMesh cache (ignore in git)
