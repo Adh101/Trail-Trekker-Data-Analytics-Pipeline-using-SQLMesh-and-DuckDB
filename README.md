@@ -33,13 +33,10 @@ Trail Trekker Data Pipeline/
 │  ├─ features.csv
 │  ├─ pla_features.csv
 │  ├─ plans.csv
-│  ├─ subscriptions.csv
-├─ logs/                                    # local logs (ignore in git)
+│  └─ subscriptions.csv
 ├─ trail-trekker/                           # SQLMesh project root
-│  ├─ .cache/                               # SQLMesh cache (ignore in git)
-│  ├─ audits/                               # (optional) custom audit SQL / helpers
-│  ├─ logs/                                 # SQLMesh run logs (ignore in git)
-│  ├─ macros/                               # (optional) SQLMesh macros / Jinja helpers
+│  ├─ audits/                               # custom audit SQL / helpers
+│  ├─ macros/                               # SQLMesh macros / Jinja helpers
 │  ├─ models/                               # all models (flat layout, prefixed by layer)
 │  │  ├─ .gitkeep
 │  │  ├─ dim_plans.sql                      # warehouse dimension (SCD-1)
@@ -52,19 +49,17 @@ Trail Trekker Data Pipeline/
 │  │  ├─ raw_plans.sql
 │  │  ├─ raw_subscriptions.sql
 │  │  ├─ seed_model.sql                     # example seed template
-│  │  ├─ staging_customers.sql              # staging models (type cleaning/standardization)
+│  │  ├─ staging_customers.sql              # staging models (cleaning/standardization)
 │  │  ├─ staging_features.sql
 │  │  ├─ staging_plans.sql
-│  │  ├─ staging_subscriptions.sql
-│  ├─ seeds/                                # (optional) CSVs for seed models
-│  ├─ tests/                                # (optional) SQLMesh tests
+│  │  └─staging_subscriptions.sql
+│  ├─ seeds/                                # CSVs for seed models
+│  ├─ tests/                                # SQLMesh tests
 │  ├─ .gitignore                            # project-specific ignores
 │  ├─ config.yaml                           # SQLMesh project config
-│  ├─ init_ddl.sql                          # (optional) helper DDL for local db setup
-│  ├─ run_trail_trekker_pipeline.sh         # hourly runner script (cron calls this)
-│  └─ trail_trekker.db                      # local DuckDB file (ignore in git)
-├─ .gitignore                               # repo-level ignores (venv, logs, *.db, etc.)
-└─ trail_trekker.db                         # (if present at root) local DuckDB (ignore in git)
+│  ├─ init_ddl.sql                          #  helper DDL for local db setup
+│  └─run_trail_trekker_pipeline.sh         # hourly runner script (cron calls this)           
+└─ .gitignore                               # repo-level ignores (venv, logs, *.db, etc.)                       
 ```
 ## 🛠️ Approach
 
