@@ -61,7 +61,7 @@ Trail Trekker Data Pipeline/
 ├─ .gitignore                               # repo-level ignores (venv, logs, *.db, etc.)
 └─ trail_trekker.db                         # (if present at root) local DuckDB (ignore in git)
 ```
-## Approach
+## 🛠️ Approach
 
 This section explains *how* the pipeline was built and *why* specific choices were made—so a teammate with zero context can pick it up and extend it confidently.
 
