@@ -20,3 +20,20 @@ Fresh, hourly metrics for Trail-Trekker using **DuckDB** for storage and **SQLMe
 - Optional: Airflow / Dagster / GitHub Actions
 
 ---
+## Repository Structure
+Trail Trekker Data Pipeline/
+├─ run_trail_trekker_pipeline.sh           # local cron runner (hourly)
+└─ trail-trekker/                          # SQLMesh project root (has sqlmesh.yaml)
+   ├─ models/
+   │  ├─ raw/                              # CSV-backed seed models (optional)
+   │  ├─ staging/
+   │  │  ├─ plans.sql
+   │  │  ├─ subscriptions.sql
+   │  │  └─ features.sql
+   │  └─ warehouse/
+   │     ├─ dim_plans.sql                  # SCD-1 dimension
+   │     └─ fct_subscription_changes.sql   # fact: plan switches & cancellations
+   ├─ seeds/                               # (optional) CSVs for raw ingestion
+   ├─ tests/                               # (optional) model tests
+   └─ sqlmesh.yaml                         # SQLMesh config
+
